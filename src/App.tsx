@@ -9,6 +9,7 @@ import Header from './components/Header';
 import ProtectedRoute from './components/ProtectedRoute';
 import { getUser } from './services/auth';
 import { setCredentials } from './store/authSlice';
+import ImageDisplayPage from './pages/imageDisplayPage';
 
 const { Content } = Layout;
 
@@ -38,6 +39,7 @@ const App: React.FC = () => {
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route element={<ProtectedRoute />}>
+                <Route path="/image/:filename" element={<ImageDisplayPage/>} />
                 <Route path="/dashboard" element={<Dashboard />} />
               </Route>
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
